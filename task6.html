@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 6</title>
+    <style>
+        .sidebar-menu {
+            position: absolute;
+            width: 200px;
+            background-color: grey;
+            color: white;
+            top: 30px;
+            left: -180px;
+            -webkit-transition: left 2s; /* Safari */
+            transition: left 2s;
+        }
+        .sidebar-menu.active {
+            left: 0;
+            -webkit-transition: left 2s; /* Safari */
+            transition: left 2s;
+        }
+        .gamburger-menu {
+            width: 20px;
+        }
+        .gamburger-menu.active {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+<div class='entire-page'>
+    <div class='sidebar-menu'>
+        <ul>
+            <li>О нас</li>
+            <li>Инкубатор</li>
+            <li>Счастье</li>
+            <li>Трудоустройство</li>
+        </ul>
+    </div>
+    <img class='gamburger-menu' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' />
+</div>
+<script>
+    var ham = document.querySelector('.gamburger-menu');
+    var menu = document.querySelector('.sidebar-menu');
+
+    ham.addEventListener('click', function() {
+        menu.classList.toggle('active');
+        ham.classList.toggle('active');
+    })
+</script>
+</body>
+</html>

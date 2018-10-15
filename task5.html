@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5</title>
+    <style>
+        .thumbs-wrapper {
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            width: 800px;
+        }
+        .photo {
+            border: 1px solid dimgrey;
+        }
+        .photo {
+            margin: 0 auto;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="thumbs-wrapper">
+        <div class="thumb-container">
+            <img src="img/portrait1_thumb.jpg" class="imgs">
+        </div>
+        <div class="thumb-container">
+            <img src="img/portrait2_thumb.jpg" class="imgs">
+        </div>
+        <div class="thumb-container">
+            <img src="img/portrait3_thumb.jpg" class="imgs">
+        </div>
+    </div>
+    <div class="photo">
+        <img src="" class="big-photo">
+    </div>
+    <script>
+        var thumbnails = document.querySelectorAll('.imgs');
+        var bigPhoto = document.querySelector('.big-photo');
+
+        function showFullPic(e) {
+            var clickedThumbLink = e.target.src;
+            bigPhoto.src = clickedThumbLink.replace('_thumb', '');
+        }
+
+        thumbnails.forEach(thumbNail => {
+            thumbNail.addEventListener('click', showFullPic)
+        });
+    </script>
+</body>
+</html>

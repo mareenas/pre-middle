@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5.1</title>
+    <style>
+        .thumbnails img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class='thumbnails'>
+    <img src='https://beatmaker.tv/Default/General/Image/38647?type=BeatImageSmall'
+         data-src-full='https://beatmaker.tv/Default/General/Image/38647?type=BeatImageOriginal' />
+    <img src='https://beatmaker.tv/Default/General/Image/32420?type=BeatImageSmall'
+         data-src-full='https://beatmaker.tv/Default/General/Image/32420?type=BeatImageOriginal' />
+    <img src='https://beatmaker.tv/Default/General/Image/24753?type=BeatImageSmall'
+         data-src-full='https://beatmaker.tv/Default/General/Image/24753?type=BeatImageOriginal' />
+</div>
+<hr/>
+<div>
+    <img id='full-size-img' src='' />
+</div>
+<script>
+    var thumbnails = document.querySelectorAll('.thumbnails img');
+    var fullSizeImg = document.getElementById('full-size-img');
+    var showFullSizeImage = function(e) {
+        fullSizeImg.src = e.target.dataset.srcFull;
+    };
+
+    for (var i=0; i < thumbnails.length; i++) {
+        thumbnails[i].addEventListener('click', showFullSizeImage);
+    }
+</script>
+</body>
+</html>

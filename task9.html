@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 9</title>
+    <style>
+        .main-menu-item .sub-menu {
+            display: none;
+        }
+        .main-menu-item.show .sub-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul class='main-menu'>
+    <li class='main-menu-item show'>
+        <span>
+          Languages
+        </span>
+        <ul class='sub-menu'>
+            <li class='sub-menu-item'>C#</li>
+            <li class='sub-menu-item'>JavaScript</li>
+            <li class='sub-menu-item'>C++</li>
+        </ul>
+    </li>
+    <li class='main-menu-item'>
+        <span>
+          Cities
+        </span>
+        <ul class='sub-menu'>
+            <li class='sub-menu-item'>Minsk</li>
+            <li class='sub-menu-item'>Moscow</li>
+            <li class='sub-menu-item'>Kiev</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    let spans = document.querySelectorAll("span");
+    spans.forEach(span => {
+        span.closest(".main-menu-item").addEventListener('click', function(e) {
+            let menuItem = e.currentTarget.closest('.main-menu-item');
+            menuItem.classList.toggle('show');
+        })
+    })
+</script>
+</body>
+</html>

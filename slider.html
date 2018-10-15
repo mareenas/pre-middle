@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <style>
+        .slider-wrapper {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-wrapper">
+        <div class="icon-wrapper">
+            <img src="./img/arrow-icon-left.png" class="arrow-left" onclick="showPreviousPicture()">
+        </div>
+        <div class="slider">
+            <img src="./img/portrait1.jpg" class="picture show">
+            <img src="./img/portrait2.jpg" class="picture hide">
+            <img src="./img/portrait3.jpg" class="picture hide">
+        </div>
+        <div class="icon-wrapper">
+            <img src="./img/arrow-icon-right.png" class="arrow-right" onclick="showNextPicture()">
+        </div>
+    </div>
+
+    <script>
+        let pictures = document.querySelectorAll(".picture");
+
+        function showPreviousPicture() {
+            for(let i = 0; i < pictures.length; i++) {
+                if(pictures[i].classList.contains('show')) {
+                    hidePicture(pictures[i]);
+                    let previousPic;
+                    if(i !== 0) {
+                        previousPic = pictures[i-1];
+                    }else {
+                        previousPic = pictures[pictures.length-1];
+                    }
+                    showPicture(previousPic);
+                    break;
+                }
+            }
+        }
+
+        function showNextPicture() {
+            for(let i = 0; i < pictures.length; i++) {
+                if(pictures[i].classList.contains('show')) {
+                    hidePicture(pictures[i]);
+                    let nextPic;
+                    if(i === pictures.length-1) {
+                        nextPic = pictures[0];
+                    }else {
+                        nextPic = pictures[i+1];
+                    }
+                    showPicture(nextPic);
+                    break;
+                }
+            }
+        }
+
+        function hidePicture(picObj) {
+            picObj.classList.replace('show', 'hide');
+        }
+
+        function showPicture(picObj) {
+            picObj.classList.replace('hide', 'show');
+        }
+    </script>
+</body>
+</html>

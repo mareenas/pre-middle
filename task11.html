@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 11</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .context-menu {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <div id='area-with-context-menu'>
+        We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be! We want be a happy developers. And we will be!
+    </div>
+    <div class='context-menu hidden' id='context-menu'>
+        <ul>
+            <li>Edit</li>
+            <li>Copy</li>
+        </ul>
+    </div>
+</div>
+<script>
+    let contextMenu = document.getElementById('context-menu');
+    let contextableArea = document.getElementById('area-with-context-menu');
+
+    function hideContextMenu(e){
+        contextMenu.classList.add('hidden');
+    }
+
+    function showContextMenu(e) {
+        e.preventDefault();
+        contextMenu.classList.remove('hidden');
+        contextMenu.style.top = e.clientY+"px";
+        contextMenu.style.left = e.clientX+"px";
+    }
+
+    contextableArea.addEventListener('contextmenu', showContextMenu);
+    contextableArea.addEventListener('click', hideContextMenu);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+    <style>
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <input type="text" class="first-input">
+    <input type="text" class="second-input">
+
+    <button class="save-button" onclick="changeValues()">Shift</button>
+</div>
+<script>
+    var firstInput = document.querySelector('.first-input');
+    var secondInput = document.querySelector('.second-input');
+    function changeValues() {
+        var taken = firstInput.value;
+        firstInput.value = secondInput.value;
+        secondInput.value = taken;
+    }
+</script>
+</body>
+</html>

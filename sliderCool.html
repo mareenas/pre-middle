@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <style>
+        .slider-wrapper {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        img.picture {
+            display: none;
+        }
+        img.picture.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="slider-wrapper">
+    <div class="icon-wrapper">
+        <img src="./img/arrow-icon-left.png" class="arrow-left" onclick="showNextPicture(-1)">
+    </div>
+    <div class="slider">
+        <img src="./img/portrait1.jpg" class="picture show">
+        <img src="./img/portrait2.jpg" class="picture">
+        <img src="./img/portrait3.jpg" class="picture">
+    </div>
+    <div class="icon-wrapper">
+        <img src="./img/arrow-icon-right.png" class="arrow-right" onclick="showNextPicture(1)">
+    </div>
+</div>
+
+<script>
+
+    let pictures = document.querySelectorAll(".picture");
+
+    function getMainPicIndex() {
+        let mainPicIndex;
+        for(let i = 0; i < pictures.length; i++) {
+            if(pictures[i].classList.contains('show')) {
+                mainPicIndex = i;
+                break;
+            }
+        }
+        return mainPicIndex;
+    }
+
+    function showNextPicture(direction) {
+        let mainPicIndex = getMainPicIndex();
+        hidePicture(pictures[mainPicIndex]);
+
+        let nextIndex = getNextIndex(mainPicIndex, pictures.length-1, direction);
+        showPicture(pictures[nextIndex]);
+    }
+
+    function hidePicture(picObj) {
+        picObj.classList.remove('show');
+    }
+
+    function showPicture(picObj) {
+        picObj.classList.add('show');
+    }
+
+    /**
+     *
+     * @param currentIndex
+     * @param maxIndex
+     * @param direction 1 for right; -1 for left
+     * @returns int
+     */
+    function getNextIndex(currentIndex, maxIndex, direction) {
+        let result = currentIndex + direction;
+        if(result > maxIndex) {
+            result = 0;
+        }
+        if(result < 0) {
+            result = maxIndex;
+        }
+        return result;
+    }
+
+</script>
+</body>
+</html>

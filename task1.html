@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="pass" type='password' />
+    <button id="show-hide-button" onclick="showHidePass()">show password</button>
+</body>
+<script>
+    var passInput = document.querySelector("#pass");
+    var showHideButton = document.querySelector("#show-hide-button");
+
+    function showHidePass() {
+        if(passInput.type === 'password') {
+            passInput.type = 'text';
+        }else{
+            passInput.type = 'password';
+        }
+    }
+
+    //another solution
+    showHideButton.onmousedown = function() {
+        console.log('down');
+        passInput.type = 'text';
+    };
+
+    showHideButton.addEventListener('mouseup', function() {
+        console.log('up');
+        passInput.type = 'password';
+    });
+</script>
+</html>

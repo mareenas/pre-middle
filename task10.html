@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 10</title>
+    <style>
+        .main-menu-item .sub-menu {
+            display: none;
+        }
+        .main-menu-item.show .sub-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul class='main-menu'>
+    <li class='main-menu-item show'>
+        <span>
+          Languages
+        </span>
+        <ul class='sub-menu'>
+            <li class='sub-menu-item'>C#</li>
+            <li class='sub-menu-item'>JavaScript</li>
+            <li class='sub-menu-item'>C++</li>
+        </ul>
+    </li>
+    <li class='main-menu-item'>
+        <span>
+          Cities
+        </span>
+        <ul class='sub-menu'>
+            <li class='sub-menu-item'>Minsk</li>
+            <li class='sub-menu-item'>Moscow</li>
+            <li class='sub-menu-item'>Kiev</li>
+        </ul>
+    </li>
+    <li class='main-menu-item'>
+        <span>
+          Bands
+        </span>
+        <ul class='sub-menu'>
+            <li class='sub-menu-item'>Bjgjg</li>
+            <li class='sub-menu-item'>KKDDddd</li>
+            <li class='sub-menu-item'>Popsap</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    // let spans = document.querySelectorAll("span");
+    // let listItems = document.querySelectorAll(".main-menu-item");
+    // spans.forEach(span => {
+    //     span.addEventListener('click', e => {
+    //         let clickedItem = e.target.closest('.main-menu-item');
+    //         if(clickedItem.classList.contains("show")) {
+    //             clickedItem.classList.remove("show");
+    //         }else {
+    //             listItems.forEach(listItem => {
+    //                 listItem.classList.remove('show');
+    //             });
+    //             clickedItem.classList.add('show');
+    //         }
+    //     })
+    // })
+
+    function listItemClickHandler(e) {
+        let clickedItem = e.currentTarget.closest(".main-menu-item");
+        if(clickedItem.classList.contains("show")) {
+            clickedItem.classList.remove("show");
+        }else {
+            listItems.forEach(listItem => {
+                listItem.classList.remove('show');
+            });
+            clickedItem.classList.add('show');
+        }
+    }
+
+    let listItems = document.querySelectorAll(".main-menu-item");
+    listItems.forEach(listItem => {
+        listItem.querySelector("span").addEventListener('click', listItemClickHandler);
+    });
+
+
+</script>
+</body>
+</html>

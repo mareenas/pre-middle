@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Status</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid grey;
+            padding: 20px;
+        }
+        .hide {
+            display: none;
+        }
+        .save-button {
+            padding: 5px;
+            background-color: darkslateblue;
+            color: white;
+            outline: none;
+            border: none;
+            margin-top: 10px;
+        }
+        .status-input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>Савельева Марина</h3>
+    <span class="status" onclick="showInput()">Йогурт был невкусный.</span>
+    <div class="redactor-div hide">
+        <input type="text" class="status-input">
+        <button class="save-button" onclick="saveStatus()">Сохранить</button>
+    </div>
+
+</div>
+<script>
+    var statusContainer = document.querySelector('.status');
+    var redactor = document.querySelector('.redactor-div');
+    var statusInput = document.querySelector('.status-input');
+
+    function showInput() {
+        statusContainer.classList.add('hide');
+        redactor.classList.remove('hide');
+        statusInput.value = statusContainer.innerHTML;
+    }
+
+    function saveStatus() {
+        statusContainer.innerHTML = statusInput.value;
+        redactor.classList.add('hide');
+        statusContainer.classList.remove('hide');
+    }
+</script>
+</body>
+</html>

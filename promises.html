@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="lib.js"></script>
+</head>
+<style>
+    .box {
+        height: 100px;
+        width: 100px;
+        background-color: darkseagreen;
+    }
+    .red {
+        background-color: palevioletred;
+    }
+
+</style>
+<body>
+<div class="box">
+
+</div>
+<script>
+    // doItAfter(5).then(function(){
+    //     console.log('test');
+    // });
+    /**
+     * Function returns promise which will be resolved when slider finished opening
+     * @param seconds
+     * @returns {Promise<any>}
+     */
+    function doItAfter(seconds) {
+        let promise = new Promise(function(resolve, reject) {
+
+
+
+            $.get('http://google.com', function(data) {
+                $.post('http://edbacker.com', function() {
+                    setTimeout(function() {
+                        resolve();
+                    }, 5000);
+                });
+            });
+
+
+
+        });
+        return promise;
+    }
+
+
+    myFunc().then(function () {
+        document.querySelector(".box").classList.add("red");
+    });
+
+
+
+</script>
+</body>
+</html>
