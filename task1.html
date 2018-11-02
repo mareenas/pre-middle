@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .container {
+            display: inline-grid;
+            grid-template-columns: 150px auto;
+            grid-template-rows: 30px auto;
+            grid-column-gap: 20px;
+            background-color: lightgrey;
+            padding: 20px;
+        }
+        .item-a {
+            align-self: center;
+        }
+    </style>
 </head>
 <body>
-    <input id="pass" type='password' />
+<div class="container">
+    <input id="pass" type='password' class="item-a"/>
     <button id="show-hide-button" onclick="showHidePass()">show password</button>
+</div>
+
 </body>
 <script>
     var passInput = document.querySelector("#pass");
