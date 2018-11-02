@@ -23,13 +23,13 @@
     <img id='full-size-img' src='' />
 </div>
 <script>
-    var thumbnails = document.querySelectorAll('.thumbnails img');
-    var fullSizeImg = document.getElementById('full-size-img');
-    var showFullSizeImage = function(e) {
+    let thumbnails = document.querySelectorAll('.thumbnails img');
+    let fullSizeImg = document.getElementById('full-size-img');
+    let showFullSizeImage = function(e) {
         fullSizeImg.src = e.target.dataset.srcFull;
     };
 
-    for (var i=0; i < thumbnails.length; i++) {
+    for (let i=0; i < thumbnails.length; i++) {
         thumbnails[i].addEventListener('click', showFullSizeImage);
     }
 </script>

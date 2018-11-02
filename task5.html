@@ -35,11 +35,11 @@
         <img src="" class="big-photo">
     </div>
     <script>
-        var thumbnails = document.querySelectorAll('.imgs');
-        var bigPhoto = document.querySelector('.big-photo');
+        let thumbnails = document.querySelectorAll('.imgs');
+        let bigPhoto = document.querySelector('.big-photo');
 
         function showFullPic(e) {
-            var clickedThumbLink = e.target.src;
+            let clickedThumbLink = e.target.src;
             bigPhoto.src = clickedThumbLink.replace('_thumb', '');
         }
 
