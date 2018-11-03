@@ -17,13 +17,15 @@
     <button class="save-button" onclick="changeValues()">Shift</button>
 </div>
 <script>
-    let firstInput = document.querySelector('.first-input');
-    let secondInput = document.querySelector('.second-input');
-    function changeValues() {
-        let taken = firstInput.value;
-        firstInput.value = secondInput.value;
-        secondInput.value = taken;
-    }
+    (function() {
+        let firstInput = document.querySelector('.first-input');
+        let secondInput = document.querySelector('.second-input');
+        function changeValues() {
+            let taken = firstInput.value;
+            firstInput.value = secondInput.value;
+            secondInput.value = taken;
+        }
+    })();
 </script>
 </body>
 </html>

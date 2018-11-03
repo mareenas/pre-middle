@@ -35,22 +35,22 @@
     </div>
 </div>
 <script>
-    let contextMenu = document.getElementById('context-menu');
-    let contextableArea = document.getElementById('area-with-context-menu');
+    (function() {
+        let contextMenu = document.getElementById('context-menu');
+        let contextableArea = document.getElementById('area-with-context-menu');
 
-    function hideContextMenu(e){
-        contextMenu.classList.add('hidden');
-    }
-
-    function showContextMenu(e) {
-        e.preventDefault();
-        contextMenu.classList.remove('hidden');
-        contextMenu.style.top = e.clientY+"px";
-        contextMenu.style.left = e.clientX+"px";
-    }
-
-    contextableArea.addEventListener('contextmenu', showContextMenu);
-    contextableArea.addEventListener('click', hideContextMenu);
+        function hideContextMenu(e){
+            contextMenu.classList.add('hidden');
+        }
+        function showContextMenu(e) {
+            e.preventDefault();
+            contextMenu.classList.remove('hidden');
+            contextMenu.style.top = e.clientY+"px";
+            contextMenu.style.left = e.clientX+"px";
+        }
+        contextableArea.addEventListener('contextmenu', showContextMenu);
+        contextableArea.addEventListener('click', hideContextMenu);
+    })();
 </script>
 </body>
 </html>

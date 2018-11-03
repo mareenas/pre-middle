@@ -37,21 +37,23 @@
 
 </div>
 <script>
-    let statusContainer = document.querySelector('.status');
-    let redactor = document.querySelector('.redactor-div');
-    let statusInput = document.querySelector('.status-input');
+    (function() {
+        let statusContainer = document.querySelector('.status');
+        let redactor = document.querySelector('.redactor-div');
+        let statusInput = document.querySelector('.status-input');
 
-    function showInput() {
-        statusContainer.classList.add('hide');
-        redactor.classList.remove('hide');
-        statusInput.value = statusContainer.innerHTML;
-    }
+        function showInput() {
+            statusContainer.classList.add('hide');
+            redactor.classList.remove('hide');
+            statusInput.value = statusContainer.innerHTML;
+        }
 
-    function saveStatus() {
-        statusContainer.innerHTML = statusInput.value;
-        redactor.classList.add('hide');
-        statusContainer.classList.remove('hide');
-    }
+        function saveStatus() {
+            statusContainer.innerHTML = statusInput.value;
+            redactor.classList.add('hide');
+            statusContainer.classList.remove('hide');
+        }
+    })();
 </script>
 </body>
 </html>

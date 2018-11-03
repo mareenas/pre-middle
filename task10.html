@@ -61,25 +61,23 @@
     //         }
     //     })
     // })
-
-    function listItemClickHandler(e) {
-        let clickedItem = e.currentTarget.closest(".main-menu-item");
-        if(clickedItem.classList.contains("show")) {
-            clickedItem.classList.remove("show");
-        }else {
-            listItems.forEach(listItem => {
-                listItem.classList.remove('show');
-            });
-            clickedItem.classList.add('show');
+    (function() {
+        function listItemClickHandler(e) {
+            let clickedItem = e.currentTarget.closest(".main-menu-item");
+            if(clickedItem.classList.contains("show")) {
+                clickedItem.classList.remove("show");
+            }else {
+                listItems.forEach(listItem => {
+                    listItem.classList.remove('show');
+                });
+                clickedItem.classList.add('show');
+            }
         }
-    }
-
-    let listItems = document.querySelectorAll(".main-menu-item");
-    listItems.forEach(listItem => {
-        listItem.querySelector("span").addEventListener('click', listItemClickHandler);
-    });
-
-
+        let listItems = document.querySelectorAll(".main-menu-item");
+        listItems.forEach(listItem => {
+            listItem.querySelector("span").addEventListener('click', listItemClickHandler);
+        });
+    })();
 </script>
 </body>
 </html>

@@ -36,13 +36,15 @@
     </li>
 </ul>
 <script>
-    let spans = document.querySelectorAll("span");
-    spans.forEach(span => {
-        span.closest(".main-menu-item").addEventListener('click', function(e) {
-            let menuItem = e.currentTarget.closest('.main-menu-item');
-            menuItem.classList.toggle('show');
+    (function() {
+        let spans = document.querySelectorAll("span");
+        spans.forEach(span => {
+            span.closest(".main-menu-item").addEventListener('click', function(e) {
+                let menuItem = e.currentTarget.closest('.main-menu-item');
+                menuItem.classList.toggle('show');
+            })
         })
-    })
+    })();
 </script>
 </body>
 </html>

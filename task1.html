@@ -25,26 +25,26 @@
 
 </body>
 <script>
-    let passInput = document.querySelector("#pass");
-    let showHideButton = document.querySelector("#show-hide-button");
+    (function(){
+        let passInput = document.querySelector("#pass");
+        let showHideButton = document.querySelector("#show-hide-button");
 
-    function showHidePass() {
-        if(passInput.type === 'password') {
+        showHideButton.onmousedown = function() {
             passInput.type = 'text';
-        }else{
+        };
+
+        showHideButton.addEventListener('mouseup', function() {
             passInput.type = 'password';
+        });
+
+        //another solution
+        function showHidePass() {
+            if(passInput.type === 'password') {
+                passInput.type = 'text';
+            }else{
+                passInput.type = 'password';
+            }
         }
-    }
-
-    //another solution
-    showHideButton.onmousedown = function() {
-        console.log('down');
-        passInput.type = 'text';
-    };
-
-    showHideButton.addEventListener('mouseup', function() {
-        console.log('up');
-        passInput.type = 'password';
-    });
+    })();
 </script>
 </html>

@@ -27,15 +27,17 @@
 <input type='number' class="my-input"/>
 
 <script>
-    let inputsArray = document.querySelectorAll('.my-input');
-    inputsArray.forEach(myImput => {
-        myImput.addEventListener('change', e => {
-            let myValue = Number(e.currentTarget.value);
-            if(myValue < 10 || myValue > 50) {
-                e.currentTarget.classList.add('error-value');
-            }
+    (function() {
+        let inputsArray = document.querySelectorAll('.my-input');
+        inputsArray.forEach(myImput => {
+            myImput.addEventListener('change', e => {
+                let myValue = Number(e.currentTarget.value);
+                if(myValue < 10 || myValue > 50) {
+                    e.currentTarget.classList.add('error-value');
+                }
+            })
         })
-    })
+    })();
 </script>
 </body>
 </html>

@@ -40,13 +40,15 @@
     <img class='gamburger-menu' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' />
 </div>
 <script>
-    let ham = document.querySelector('.gamburger-menu');
-    let menu = document.querySelector('.sidebar-menu');
+    (function(){
+        let ham = document.querySelector('.gamburger-menu');
+        let menu = document.querySelector('.sidebar-menu');
 
-    ham.addEventListener('click', function() {
-        menu.classList.toggle('active');
-        ham.classList.toggle('active');
-    })
+        ham.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            ham.classList.toggle('active');
+        })
+    })();
 </script>
 </body>
 </html>

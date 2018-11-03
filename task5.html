@@ -35,17 +35,19 @@
         <img src="" class="big-photo">
     </div>
     <script>
-        let thumbnails = document.querySelectorAll('.imgs');
-        let bigPhoto = document.querySelector('.big-photo');
+        (function() {
+            let thumbnails = document.querySelectorAll('.imgs');
+            let bigPhoto = document.querySelector('.big-photo');
 
-        function showFullPic(e) {
-            let clickedThumbLink = e.target.src;
-            bigPhoto.src = clickedThumbLink.replace('_thumb', '');
-        }
+            function showFullPic(e) {
+                let clickedThumbLink = e.target.src;
+                bigPhoto.src = clickedThumbLink.replace('_thumb', '');
+            }
 
-        thumbnails.forEach(thumbNail => {
-            thumbNail.addEventListener('click', showFullPic)
-        });
+            thumbnails.forEach(thumbNail => {
+                thumbNail.addEventListener('click', showFullPic)
+            });
+        })();
     </script>
 </body>
 </html>

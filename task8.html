@@ -40,12 +40,14 @@
     <img class='gamburger-menu' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' />
 </div>
 <script>
-    let page = document.querySelector('.entire-page');
-    let ham = document.querySelector('.gamburger-menu');
+    (function(){
+        let page = document.querySelector('.entire-page');
+        let ham = document.querySelector('.gamburger-menu');
 
-    ham.addEventListener('click', function() {
-        page.classList.toggle('active');
-    })
+        ham.addEventListener('click', function() {
+            page.classList.toggle('active');
+        })
+    })();
 </script>
 </body>
 </html>
